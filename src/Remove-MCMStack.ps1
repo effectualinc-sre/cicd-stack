@@ -43,5 +43,5 @@ function Get-MCMStackSet {
     return $stackDetails
  }
 
-$AccountCred = ./Get-MCMCustomerCredential
+$AccountCred = ./Get-MCMCustomerCredential.ps1
 Remove-MCMStack
