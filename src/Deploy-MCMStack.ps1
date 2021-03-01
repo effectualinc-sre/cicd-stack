@@ -49,6 +49,6 @@ function Get-MCMStack {
     return $stackDetails
  }
 
-$AccountCred = ./Get-MCMCustomerCredential.ps1
+$AccountCred = ./Get-MCMCredential.ps1
 
 Deploy-MCMStack
