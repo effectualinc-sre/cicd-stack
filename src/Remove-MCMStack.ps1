@@ -1,7 +1,7 @@
 Param(
     [object[]] $Customer
 )
-
+Import-Module AWSPowerShell.NetCore
 $config = (Get-Content -Raw "config.json") -join "`n" | convertfrom-json
 $Wait_Time = 5
 

@@ -1,11 +1,10 @@
 Param(
     [object[]] $Customer
 )
-
+Import-Module AWSPowerShell.NetCore
 $config = (Get-Content -Raw "config.json") -join "`n" | convertfrom-json
 
 function Deploy-MCMStack {
-    Import-Module AWSPowerShell.NetCore
     if(Get-MCMStack){
         Write-Host -ForegroundColor Blue $("INFO : {0} : Stack {1} already deployed. Will attempt to update stack." -f $Customer.Name, $config.Service.StackName)
         Update-MCMStack
