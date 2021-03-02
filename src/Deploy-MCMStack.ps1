@@ -12,7 +12,6 @@ function Deploy-MCMStack {
         try {
             New-CFNStack `
                 -StackName $config.Service.StackName `
-                -Description $config.Service.Description `
                 -Region $config.Service.Region `
                 -Capability 'CAPABILITY_IAM', 'CAPABILITY_NAMED_IAM', 'CAPABILITY_AUTO_EXPAND' `
                 -TemplateURL $config.Service.TemplateUrl `
@@ -28,7 +27,6 @@ function Update-MCMStack {
     try {
         Update-CFNStack `
             -StackName $config.Service.StackName `
-            -Description $config.Service.Description `
             -Region $config.Service.Region `
             -Capability 'CAPABILITY_IAM', 'CAPABILITY_NAMED_IAM', 'CAPABILITY_AUTO_EXPAND' `
             -TemplateURL $config.Service.TemplateUrl `
