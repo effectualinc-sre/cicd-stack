@@ -7,16 +7,21 @@ function Start-MCMStackOperations {
         Write-Host -ForegroundColor Magenta $("INFO : No customer accounts configured for this Stack.")
     } else {
         $deploy = @()
-        $update = @()
-        $remove = @()
         foreach ($customer in $config.Customers) {
-            Switch (($customer.Status).ToLower()) {
-                "deploy" { $deploy += $customer }
-                "update" { $update += $customer }
-                "remove" { $remove += $customer }
-                default: { $deploy += $customer }
-            }
+            $deploy += $customer
         }
+        ## The following code has been commented to only deploy / update stacks.
+        ## Manual removal is required to remove stack from Managment account.
+        # $update = @()
+        # $remove = @()
+        # foreach ($customer in $config.Customers) {
+        #     Switch (($customer.Status).ToLower()) {
+        #         "deploy" { $deploy += $customer }
+        #         "update" { $update += $customer }
+        #         "remove" { $remove += $customer }
+        #         default: { $deploy += $customer }
+        #     }
+        # }
     }
 
     if($deploy){
