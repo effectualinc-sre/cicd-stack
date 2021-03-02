@@ -14,6 +14,7 @@ function Start-MCMStackOperations {
                 "deploy" { $deploy += $customer }
                 "update" { $update += $customer }
                 "remove" { $remove += $customer }
+                default: { $deploy += $customer }
             }
         }
     }
